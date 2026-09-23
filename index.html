@@ -1,70 +1,102 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ELIMU LENS - Piga Picha, Shule Iko Live</title>
-<style>
-:root{--gold:#B8860B;--gold2:#DAA520;--black:#111;--white:#fff}
-*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui}
-body{background:var(--white);color:var(--black)}
-.hero{background:linear-gradient(135deg,#111 0%,#222 100%);color:white;padding:40px 20px;text-align:center}
-.logo{font-size:42px;font-weight:900;color:var(--gold2);letter-spacing:3px}
-.tag{margin:10px 0 20px;color:#ccc}
-.lang-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;max-width:600px;margin:20px auto}
-.lang-card{background:white;border:2px solid var(--gold);border-radius:16px;padding:20px;cursor:pointer;color:black}
-.lang-card:hover{background:var(--gold);color:white}
-.btn-gold{background:var(--gold2);color:black;padding:16px 32px;border:none;border-radius:30px;font-weight:800;font-size:18px;cursor:pointer;width:100%;max-width:400px}
-.features{padding:30px 20px;display:grid;gap:20px;max-width:800px;margin:auto}
-.feat{border-left:4px solid var(--gold);padding-left:15px}
-.feat h3{color:var(--gold)}
-.comparison{background:#f8f8f8;padding:30px 20px}
-table{width:100%;max-width:700px;margin:auto;border-collapse:collapse}
-th{background:var(--black);color:var(--gold2);padding:12px}
-td{padding:10px;border-bottom:1px solid #ddd}
-.yes{color:green;font-weight:700}.no{color:red}
-</style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>ELIMU LENS - School OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{gold:'#DAA520',gold2:'#B8860B',blacks:'#111827'}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>*{font-family:Inter,system-ui}.hide{display:none!important}.card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:#fff}</style>
 </head>
-<body>
-<div class="hero">
-<div class="logo">ELIMU LENS</div>
-<div class="tag">Piga Picha. Shule Iko Live. | Sawir. Dugsigu Wuu Nool Yahay.</div>
-<h1 id="t1">Choose Language / Chagua Lugha / Dooro Luqad</h1>
-<div class="lang-grid">
-<div class="lang-card" onclick="setLang('en')"><h2>EN</h2><p>English</p><small>Photo-first School OS</small></div>
-<div class="lang-card" onclick="setLang('sw')"><h2>SW</h2><p>Kiswahili</p><small>Piga Picha ya Kitabu</small></div>
-<div class="lang-card" onclick="setLang('so')"><h2>SO</h2><p>Somali</p><small>Sawir Buugga</small></div>
+<body class="bg-gray-50 text-gray-900">
+<div class="flex min-h-screen">
+<aside id="sidebar" class="w-[280px] bg-[#0f1115] text-white fixed h-full overflow-y-auto z-50 translate-x-[-100%] md:translate-x-0 transition">
+<div class="p-5 border-b border-white/10">
+<div class="text-[26px] font-black tracking-[3px] text-[#DAA520]">ELIMU LENS</div>
+<div class="text-[11px] text-gray-400 tracking-widest">SNAP A PHOTO. SCHOOL IS LIVE.</div>
+<div class="mt-3 text-xs bg-white/10 rounded-full px-3 py-1 inline-block">Young Muslim Academy • 450 Pupils</div>
 </div>
-<button class="btn-gold" onclick="demo()">📸 DEMO: Piga Picha ya Fees Book</button>
-<p style="margin-top:15px;font-size:13px;color:#aaa">Works with phone only. No computer. No secretary. 5k/term.</p>
+<nav class="p-2 space-y-1 text-[13px]">
+<button onclick="showPage('dashboard')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">📊 Dashboard</button>
+<button onclick="showPage('admission')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">🎓 Admission • Pupils</button>
+<button onclick="showPage('attendance')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">✅ Attendance</button>
+<button onclick="showPage('bursar')" class="w-full text-left px-3 py-2.5 rounded-lg bg-[#DAA520] text-black font-bold">💰 Bursar • Fees • M-Pesa</button>
+<button onclick="showPage('marks')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">📝 Marks • Exams</button>
+<button onclick="showPage('reports')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">📄 Reports • Rank</button>
+<button onclick="showPage('staff')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">👥 Staff & Payroll</button>
+<button onclick="showPage('expenses')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">💸 Expenses</button>
+<button onclick="showPage('parents')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">👨‍👩‍👧 Parents</button>
+<button onclick="showPage('calendar')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">📅 Calendar</button>
+<button onclick="showPage('messages')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">💬 Messages</button>
+<button onclick="showPage('homework')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">📚 Homework</button>
+<button onclick="showPage('lesson')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">📖 Lesson Plan</button>
+<button onclick="showPage('settings')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/10">⚙️ Settings</button>
+</nav>
+<div class="p-3 text-[11px] text-gray-500">ENGLISH ONLY • v1.0 GitHub</div>
+</aside>
+
+<main class="flex-1 md:ml-[280px]">
+<div class="sticky top-0 z-40 bg-white border-b px-4 py-3 flex justify-between items-center">
+<button onclick="document.getElementById('sidebar').classList.toggle('translate-x-[-100%]')" class="md:hidden bg-black text-white px-3 py-1 rounded">☰ Menu</button>
+<div class="font-bold">ELIMU LENS OS <span class="text-[#DAA520]">• English</span></div>
+<div class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">● Live</div>
 </div>
 
-<div class="features">
-<div class="feat"><h3 id="f1">1. Bursar Blind Solved</h3><p id="fd1">Principal sees money at night in bed. "Pesa iko ngapi leo?" Voice answer. Bursar cannot hide.</p></div>
-<div class="feat"><h3>2. M-Pesa Auto</h3><p>Parent forwards M-Pesa SMS to WhatsApp 0718... Balance auto updates. Receipt sent.</p></div>
-<div class="feat"><h3>3. Black Book Photo</h3><p>Take photo of admission / fees book. AI reads it. School live in 10 mins. No typing.</p></div>
+<section id="page-dashboard" class="page p-4 space-y-4">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="card"><div class="text-xs text-gray-500">TOTAL PUPILS</div><div class="text-2xl font-black">450</div><div class="text-xs">Day 270 • Boarding 180</div></div>
+<div class="card"><div class="text-xs text-gray-500">COLLECTED</div><div class="text-2xl font-black text-green-600">KSh 3.2M</div></div>
+<div class="card"><div class="text-xs text-gray-500">TOTAL DEBT</div><div class="text-2xl font-black text-red-600">KSh 890K</div></div>
+<div class="card"><div class="text-xs text-gray-500">SALARY MONTH</div><div class="text-2xl font-black">KSh 312K</div><div class="text-xs">TSC 4 BOM 5 Support 3</div></div>
 </div>
-
-<div class="comparison">
-<h2 style="text-align:center;margin-bottom:15px">ELIMU LENS vs ShuleHub / Zeraki</h2>
-<table>
-<tr><th>Feature</th><th>ShuleHub</th><th>ELIMU LENS</th></tr>
-<tr><td>Needs Computer?</td><td class="no">YES - Secretary needed</td><td class="yes">NO - Phone only</td></tr>
-<tr><td>Setup time</td><td class="no">1 Week typing</td><td class="yes">10 mins - Photo</td></tr>
-<tr><td>Fees Book</td><td class="no">Type page by page</td><td class="yes">Piga picha → List in 5 sec</td></tr>
-<tr><td>Bursar theft?</td><td class="no">Can hide</td><td class="yes">Vault - Principal sees live</td></tr>
-<tr><td>Language</td><td>English only</td><td>EN / SW / SO + Voice</td></tr>
-<tr><td>Price</td><td>40k + computer</td><td>5k/term phone tu</td></tr>
-</table>
+<div class="grid md:grid-cols-3 gap-3">
+<div class="card bg-[#111] text-white"><div class="text-[#DAA520] font-bold">Balance = Collected - Salary - Expenses</div><div class="text-3xl font-black mt-2">KSh 2.61M</div></div>
+<div class="card"><div class="font-bold">Day vs Boarding</div><div class="mt-2 text-sm">Day: 270 Debt 270k<br>Boarding: 180 Debt 620k</div></div>
+<div class="card"><div class="font-bold">Next 7 Days</div><div class="mt-2 text-xs">● Sep 26 Fees Deadline Boarding<br>● Sep 28 Opener Exam<br>● Sep 30 BOM Meeting</div></div>
 </div>
+<div class="card"><div class="font-bold">Streams Breakdown</div><table class="w-full text-[12px] mt-3"><tr class="bg-gray-100"><th class="p-2 text-left">Class</th><th>Stream</th><th>Pupils</th><th>Day</th><th>Boarding</th><th>Debt</th></tr><tr><td class="p-2">Class 5</td><td>East</td><td>40</td><td>25</td><td>15</td><td>80k</td></tr><tr><td class="p-2">Class 5</td><td>West</td><td>38</td><td>22</td><td>16</td><td>95k</td></tr><tr><td class="p-2">Form 2</td><td>A</td><td>45</td><td>20</td><td>25</td><td>210k</td></tr></table></div>
+</section>
 
+<section id="page-admission" class="page hide p-4 space-y-4">
+<div class="card border-2 border-dashed border-[#DAA520] bg-[#FFFBEB] text-center py-8"><div class="text-4xl">📸</div><div class="font-black">Snap Admission Book Photo</div><p class="text-xs text-gray-600 mt-1">AI extracts ADM, Name, Gender M/F, Class, Stream East/West/A/B, Day/Boarding, Parent Phone</p><input type="file" accept="image/*" capture="environment" class="mt-3" onchange="mockAdmission(this)"><div id="admission-preview" class="mt-4 text-left text-xs"></div></div>
+<div class="card border-2 border-dashed py-6 text-center"><div class="font-bold">Snap Group Photo - Tag Faces to ADM</div><input type="file" accept="image/*" multiple class="mt-2"><p class="text-xs text-gray-500">face detection crops 40 faces</p></div>
+<div class="card"><div class="font-bold mb-2">Add Pupil Single</div><div class="grid grid-cols-2 gap-2 text-xs"><input placeholder="ADM e.g. 1234" class="border p-2 rounded"><input placeholder="Full Name" class="border p-2 rounded"><select class="border p-2 rounded"><option>Gender M/F</option><option>M</option><option>F</option></select><select class="border p-2 rounded"><option>Class Grade5/Form2</option><option>Grade 5</option><option>Form 2</option></select><input placeholder="Stream East/West/A/B" class="border p-2 rounded"><select class="border p-2 rounded"><option>CBC/844</option><option>CBC</option><option>844</option></select><select class="border p-2 rounded"><option>Day/Boarding</option><option>Day</option><option>Boarding</option></select><input placeholder="Parent Phone" class="border p-2 rounded"></div><button class="mt-3 bg-[#DAA520] px-4 py-2 rounded font-bold text-sm">Save Pupil</button></div>
+<div class="card overflow-auto"><table class="w-full text-[11px]"><tr class="bg-black text-[#DAA520]"><th class="p-2">Photo</th><th>ADM</th><th>Name</th><th>G</th><th>Class+Stream</th><th>Day/Board</th><th>Action</th></tr><tr><td class="p-2">👦</td><td>YMA001</td><td>Ahmed Ali</td><td>M</td><td>Class5 East</td><td>Boarding</td><td><button class="bg-gray-200 px-2 rounded">Archive</button></td></tr></table></div>
+</section>
+
+<section id="page-bursar" class="page p-4 space-y-4">
+<div class="card bg-black text-white"><div class="font-black text-[#DAA520]">BURSAR - THE VAULT</div><p class="text-xs text-gray-300">Principal sees live money. Bursar cannot hide. M-Pesa auto reconciled.</p></div>
+<div class="grid md:grid-cols-2 gap-3">
+<div class="card border-2 border-dashed border-[#DAA520] text-center py-6"><div class="font-bold">Snap Fees Book Photo</div><input type="file" accept="image/*" class="mt-2" onchange="mockFees(this)"><p class="text-xs">AI extract ADM, paid, balance, Day/Boarding</p><div id="fees-preview" class="text-xs mt-2 text-left"></div></div>
+<div class="card border-2 border-dashed text-center py-6"><div class="font-bold">M-Pesa Inbox</div><textarea placeholder="Paste M-Pesa SMS" class="w-full border p-2 rounded text-xs mt-2"></textarea><input type="file" accept="image/*" class="mt-2"><p class="text-xs">AI extracts amount sender code</p></div>
+</div>
+<div class="card overflow-auto"><div class="flex gap-2 mb-2"><button class="bg-black text-white px-3 py-1 rounded text-xs">All</button><button class="bg-gray-200 px-3 py-1 rounded text-xs">Day Only</button><button class="bg-gray-200 px-3 py-1 rounded text-xs">Boarding Only</button><button class="bg-red-100 text-red-700 px-3 py-1 rounded text-xs">Defaulters Only</button></div><table class="w-full text-[11px]"><tr class="bg-black text-[#DAA520]"><th class="p-2">Photo</th><th>ADM</th><th>Name</th><th>G</th><th>Class+Stream</th><th>Cat</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th></tr><tr><td>👦</td><td>YMA001</td><td>Ahmed</td><td>M</td><td>Class5 East</td><td>Boarding</td><td>25k</td><td>10k</td><td>15k</td><td><span class="bg-red-100 text-red-700 px-2 rounded">Debt</span></td></tr><tr><td>👧</td><td>YMA002</td><td>Fatma</td><td>F</td><td>Form2 A</td><td>Day</td><td>8k</td><td>8k</td><td>0</td><td><span class="bg-green-100 px-2 rounded">Paid</span></td></tr></table><div class="flex gap-2 mt-3"><button class="bg-[#DAA520] px-3 py-2 rounded text-xs font-bold">Download Debtors PDF</button><button class="bg-black text-white px-3 py-2 rounded text-xs">Excel</button></div></div>
+</section>
+
+<section id="page-staff" class="page hide p-4 space-y-3">
+<div class="grid grid-cols-3 gap-2 text-xs"><div class="card">Active 12 TSC 4 BOM 5 Support 3</div><div class="card">Present Today 10</div><div class="card">Need 1 Science</div></div>
+<div class="card"><div class="font-bold">Add Staff - Photo Gender Subjects</div><div class="grid grid-cols-2 gap-2 mt-2 text-xs"><input placeholder="Name" class="border p-2 rounded"><select class="border p-2 rounded"><option>Gender M/F</option><option>M</option><option>F</option></select><select class="border p-2 rounded"><option>Role TSC Teacher/BOM/Cook/Watchman/Driver/Matron</option></select><input placeholder="Subjects Maths Physics" class="border p-2 rounded"><input placeholder="Classes Form2A" class="border p-2 rounded"><input placeholder="Salary" class="border p-2 rounded"></div><button class="mt-2 bg-[#DAA520] px-3 py-1 rounded text-xs font-bold">Save Staff</button></div>
+<div class="card overflow-auto text-[11px]"><table class="w-full"><tr class="bg-black text-[#DAA520]"><th class="p-2">Photo</th><th>Staff No</th><th>Name</th><th>G</th><th>Role</th><th>Type</th><th>Subjects</th><th>Classes</th><th>Salary</th><th>Actions</th></tr><tr><td>👨</td><td>STF01</td><td>John</td><td>M</td><td>TSC Teacher</td><td>TSC</td><td>Maths</td><td>Form2A</td><td>45k</td><td><button class="bg-gray-200 px-1 rounded">Promote</button> <button class="bg-yellow-200 px-1 rounded">Transfer</button> <button class="bg-gray-200 px-1 rounded">Archive</button></td></tr></table></div>
+<div class="card"><div class="font-bold">Payroll Month <input type="month" value="2026-09" class="border rounded px-2"></div><button class="bg-black text-[#DAA520] px-3 py-1 rounded text-xs mt-2">Generate Payroll</button><p class="text-xs mt-2">Salary - Advance - Deductions = Net Pay. Payslips PDF with photo.</p></div>
+</section>
+
+<section id="page-attendance" class="page hide p-4"><div class="card">Attendance: Date + Class + Stream + Pupil/Staff toggle. Calendar strip green/red dots. Drag Attendance Sheet OCR. Table Present/Absent/Late with photo thumbs.</div></section>
+<section id="page-marks" class="page hide p-4"><div class="card">Marks: Filters Class Stream Subject Exam Opener/Mid/End. Drag Marking Scheme + 30 Answer Sheets AI marks. Table Photo ADM Score Grade EE/ME/AE/BE CBC. Download Marked PDFs.</div></section>
+<section id="page-reports" class="page hide p-4"><div class="card">Reports: Generate Reports auto calc Total Average Position Stream + Whole Class ties. Excel + PDF Report Cards with photo ADM Gender Class+Stream Day/Boarding Fees balance. Class Analysis mean per subject.</div></section>
+<section id="page-expenses" class="page hide p-4"><div class="card">Expenses: Add Item Amount Receipt Photo OCR Date By Who. Table + Cash Left = Collected - Expenses - Salary.</div></section>
+<section id="page-parents" class="page hide p-4"><div class="card">Parents: Search ADM Name Parent Phone. Big photo ADM Name Gender Class+Stream System Category Parent Phone Fees Total/Paid/Balance Marks Attendance Report download.</div></section>
+<section id="page-calendar" class="page hide p-4"><div class="card">Calendar & Events: Full calendar color Red Exam Blue Fees Green Holiday Yellow Event. Add Event Title Date range Type For Who All/Boarding/Day/Class/Stream. Pre-fill Kenyan 2026 Term dates. Export PDF.</div></section>
+<section id="page-messages" class="page hide p-4"><div class="card"><div class="font-bold">Messages Center - English Only</div><textarea placeholder="Type message in English..." class="w-full border p-3 rounded mt-2 h-24"></textarea><div class="grid grid-cols-2 gap-2 mt-2 text-xs"><label><input type="checkbox"> All Parents</label><label><input type="checkbox"> Boarding Only</label><label><input type="checkbox"> Day Only</label><label><input type="checkbox"> Defaulters</label><label><input type="checkbox"> Staff TSC/BOM/Support</label></div><div class="mt-3 text-xs">Will send to 78 parents</div></div></section>
+<section id="page-homework" class="page hide p-4"><div class="card">Homework: Select Class+Stream Generate PDF with logo Send WhatsApp.</div></section>
+<section id="page-lesson" class="page hide p-4"><div class="card">Lesson Plan: Class Subject Topic Duration CBC/844 Generate AI Download Word/PDF.</div></section>
+<section id="page-settings" class="page hide p-4"><div class="card">Settings: School Name Logo Type CBC/844/Both Add Classes Add Streams East/West/A/B free text Fee Templates Salary Templates. Supabase SQL setup instructions inside.</div></section>
+</main>
+</div>
 <script>
-function setLang(l){
-if(l=='sw'){document.getElementById('t1').innerText='Chagua Lugha - Elimu Lens Iko Tayari';document.getElementById('f1').innerText='1. Wizi wa Bursar Umeisha';document.getElementById('fd1').innerText='Mwalimu Mkuu anaona pesa usiku kitandani. Bursar hawezi ficha.'}
-if(l=='so'){document.getElementById('t1').innerText='Dooro Luqadda - Elimu Lens Diyaar';}
-if(l=='en'){location.reload()}
-alert('Language: '+l+' - Elimu Lens will speak '+l+'! Full AI voice coming next.');
-}
-function demo(){alert('📸 DEMO: Chukua picha ya kitabu chako cha ADA (fees book) na tuma kwa WhatsApp 0718 XXX XXX. Tutatengeneza list ya wadaiwa in 5 seconds. ShuleHub haiwezi!');}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.add('hide'));document.getElementById('page-'+id).classList.remove('hide');if(window.innerWidth<768)document.getElementById('sidebar').classList.add('translate-x-[-100%]');}
+function mockAdmission(input){document.getElementById('admission-preview').innerHTML='AI Reading... Extracted 3 pupils: ADM YMA101 Ali Hassan M Class5 East Boarding 0718... <br><button class="mt-2 bg-black text-[#DAA520] px-2 py-1 rounded">Confirm & Save 3 Pupils</button>';}
+function mockFees(input){document.getElementById('fees-preview').innerHTML='AI Extracted: ADM YMA001 Paid 10k Balance 15k Boarding matched.';}
+showPage('bursar');
 </script>
 </body>
 </html>
