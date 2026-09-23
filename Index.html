@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELIMU LENS - Piga Picha, Shule Iko Live</title>
+<style>
+:root{--gold:#B8860B;--gold2:#DAA520;--black:#111;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui}
+body{background:var(--white);color:var(--black)}
+.hero{background:linear-gradient(135deg,#111 0%,#222 100%);color:white;padding:40px 20px;text-align:center}
+.logo{font-size:42px;font-weight:900;color:var(--gold2);letter-spacing:3px}
+.tag{margin:10px 0 20px;color:#ccc}
+.lang-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;max-width:600px;margin:20px auto}
+.lang-card{background:white;border:2px solid var(--gold);border-radius:16px;padding:20px;cursor:pointer;color:black}
+.lang-card:hover{background:var(--gold);color:white}
+.btn-gold{background:var(--gold2);color:black;padding:16px 32px;border:none;border-radius:30px;font-weight:800;font-size:18px;cursor:pointer;width:100%;max-width:400px}
+.features{padding:30px 20px;display:grid;gap:20px;max-width:800px;margin:auto}
+.feat{border-left:4px solid var(--gold);padding-left:15px}
+.feat h3{color:var(--gold)}
+.comparison{background:#f8f8f8;padding:30px 20px}
+table{width:100%;max-width:700px;margin:auto;border-collapse:collapse}
+th{background:var(--black);color:var(--gold2);padding:12px}
+td{padding:10px;border-bottom:1px solid #ddd}
+.yes{color:green;font-weight:700}.no{color:red}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="logo">ELIMU LENS</div>
+<div class="tag">Piga Picha. Shule Iko Live. | Sawir. Dugsigu Wuu Nool Yahay.</div>
+<h1 id="t1">Choose Language / Chagua Lugha / Dooro Luqad</h1>
+<div class="lang-grid">
+<div class="lang-card" onclick="setLang('en')"><h2>EN</h2><p>English</p><small>Photo-first School OS</small></div>
+<div class="lang-card" onclick="setLang('sw')"><h2>SW</h2><p>Kiswahili</p><small>Piga Picha ya Kitabu</small></div>
+<div class="lang-card" onclick="setLang('so')"><h2>SO</h2><p>Somali</p><small>Sawir Buugga</small></div>
+</div>
+<button class="btn-gold" onclick="demo()">📸 DEMO: Piga Picha ya Fees Book</button>
+<p style="margin-top:15px;font-size:13px;color:#aaa">Works with phone only. No computer. No secretary. 5k/term.</p>
+</div>
+
+<div class="features">
+<div class="feat"><h3 id="f1">1. Bursar Blind Solved</h3><p id="fd1">Principal sees money at night in bed. "Pesa iko ngapi leo?" Voice answer. Bursar cannot hide.</p></div>
+<div class="feat"><h3>2. M-Pesa Auto</h3><p>Parent forwards M-Pesa SMS to WhatsApp 0718... Balance auto updates. Receipt sent.</p></div>
+<div class="feat"><h3>3. Black Book Photo</h3><p>Take photo of admission / fees book. AI reads it. School live in 10 mins. No typing.</p></div>
+</div>
+
+<div class="comparison">
+<h2 style="text-align:center;margin-bottom:15px">ELIMU LENS vs ShuleHub / Zeraki</h2>
+<table>
+<tr><th>Feature</th><th>ShuleHub</th><th>ELIMU LENS</th></tr>
+<tr><td>Needs Computer?</td><td class="no">YES - Secretary needed</td><td class="yes">NO - Phone only</td></tr>
+<tr><td>Setup time</td><td class="no">1 Week typing</td><td class="yes">10 mins - Photo</td></tr>
+<tr><td>Fees Book</td><td class="no">Type page by page</td><td class="yes">Piga picha → List in 5 sec</td></tr>
+<tr><td>Bursar theft?</td><td class="no">Can hide</td><td class="yes">Vault - Principal sees live</td></tr>
+<tr><td>Language</td><td>English only</td><td>EN / SW / SO + Voice</td></tr>
+<tr><td>Price</td><td>40k + computer</td><td>5k/term phone tu</td></tr>
+</table>
+</div>
+
+<script>
+function setLang(l){
+if(l=='sw'){document.getElementById('t1').innerText='Chagua Lugha - Elimu Lens Iko Tayari';document.getElementById('f1').innerText='1. Wizi wa Bursar Umeisha';document.getElementById('fd1').innerText='Mwalimu Mkuu anaona pesa usiku kitandani. Bursar hawezi ficha.'}
+if(l=='so'){document.getElementById('t1').innerText='Dooro Luqadda - Elimu Lens Diyaar';}
+if(l=='en'){location.reload()}
+alert('Language: '+l+' - Elimu Lens will speak '+l+'! Full AI voice coming next.');
+}
+function demo(){alert('📸 DEMO: Chukua picha ya kitabu chako cha ADA (fees book) na tuma kwa WhatsApp 0718 XXX XXX. Tutatengeneza list ya wadaiwa in 5 seconds. ShuleHub haiwezi!');}
+</script>
+</body>
+</html>
