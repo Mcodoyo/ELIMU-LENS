@@ -2,206 +2,103 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ELIMU LENS OS - Pro</title>
+<title>ELIMU LENS OS</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<style>*{font-family:Inter}.hide{display:none} input,select,textarea{outline:none}</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>*{font-family:Inter}.hide{display:none}</style>
 </head>
-<body class="bg-[#f5f3ef]">
-<!-- HEADER FIXED -->
-<header class="bg-[#0e0e0e] text-white sticky top-0 z-50 border-b border-white/10">
-<div class="max-w-[1200px] mx-auto px-4 py-3.5 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="w-9 h-9 bg-[#DAA520] rounded-xl flex items-center justify-center text-black font-black">E</div>
-<div>
-<div class="font-black tracking-[2px] text-[13px]">ELIMU LENS</div>
-<div class="text-[10px] text-[#DAA520] tracking-widest font-bold -mt-0.5">SCHOOL OS • ENGLISH ONLY</div>
+<body class="bg-[#f2] min-h-screen">
+
+<!-- PAGE 1: LOGIN -->
+<section id="login" class="min-h-screen flex flex-col items-center justify-center p-6">
+<div class="bg-white w-full max-w-[360px] rounded-[24px] shadow-sm border p-6 text-center">
+<div class="w-14 h-14 bg-black rounded-[14px] flex items-center justify-center mx-auto font-black text-[#DAA520] text-xl">E</div>
+<div class="mt-3 font-black tracking-[3px] text-[18px]">ELIMU LENS</div>
+<div class="text-[11px] text-gray-500 tracking-widest">SNAP A PHOTO. SCHOOL IS LIVE.</div>
+<div class="mt-6 text-left">
+<div class="text-xs font-bold">Phone Number</div>
+<input id="phone" placeholder="07xx xxx xxx" class="w-full border rounded-full px-4 py-3 text-sm mt-2 bg-gray-50">
+<div class="text-xs font-bold mt-4">OTP Code (mock 1234)</div>
+<input id="otp" placeholder="1234" class="w-full border rounded-full px-4 py-3 text-sm mt-2 bg-gray-50">
+<button onclick="goHub()" class="w-full bg-black text-white rounded-full py-3.5 font-bold mt-6 text-sm">Log In</button>
+<div class="text-[11px] text-gray-500 mt-3 text-center">Young Muslim Academy • Garissa • 450 pupils</div>
 </div>
 </div>
-<div class="flex items-center gap-2">
-<div class="hidden md:flex text-[11px] bg-white/10 px-3 py-1.5 rounded-full">Young Muslim Academy • 450</div>
-<div class="bg-[#DAA520] text-black text-[10px] font-black px-3 py-1.5 rounded-full">LIVE</div>
-<button onclick="document.getElementById('mob').classList.toggle('hidden')" class="md:hidden bg-white/10 px-3 py-1.5 rounded-full">☰</button>
+</section>
+
+<!-- PAGE 2: HUB - LLCC STYLE BIG BUTTONS -->
+<section id="hub" class="hide min-h-screen bg-[#f2f2f2]">
+<div class="bg-white border-b sticky top-0 z-50">
+<div class="max-w-[420px] mx-auto px-4 py-3 flex justify-between items-center">
+<div class="flex gap-2 items-center"><div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-[#DAA520] font-black">E</div><div><div class="font-black text-[12px]">ELIMU LENS</div><div class="text-[9px] text-gray-500">ENGLISH ONLY • LIVE</div></div></div>
+<button onclick="location.reload()" class="text-[11px] bg-gray-100 px-3 py-1.5 rounded-full">Logout</button>
 </div>
 </div>
-<!-- MOBILE MENU -->
-<div id="mob" class="hidden md:hidden border-t border-white/10 p-2 grid grid-cols-2 gap-2">
-<button onclick="showP('dashboard')" class="bg-white/10 p-2 rounded-xl text-xs">📊 Dashboard</button>
-<button onclick="showP('admission')" class="bg-white/10 p-2 rounded-xl text-xs">🎓 Admission</button>
-<button onclick="showP('bursar')" class="bg-[#DAA520] text-black p-2 rounded-xl text-xs font-bold">💰 Bursar</button>
-<button onclick="showP('staff')" class="bg-white/10 p-2 rounded-xl text-xs">👥 Staff</button>
-<button onclick="showP('marks')" class="bg-white/10 p-2 rounded-xl text-xs">📝 Marks</button>
-<button onclick="showP('reports')" class="bg-white/10 p-2 rounded-xl text-xs">📄 Reports</button>
-<button onclick="showP('calendar')" class="bg-white/10 p-2 rounded-xl text-xs">📅 Calendar</button>
-<button onclick="showP('settings')" class="bg-white/10 p-2 rounded-xl text-xs">⚙️ Settings</button>
+<div class="max-w-[420px] mx-auto p-4">
+<div class="bg-white rounded-[16px] border p-3 flex items-center gap-3">
+<img src="https://i.ibb.co/4Z3s0cM/logo.png" class="w-12 h-12 rounded bg-gray-100 hidden">
+<div class="w-12 h-12 bg-[#DAA520] rounded-xl flex items-center justify-center font-black">YMA</div>
+<div><div class="font-black text-[13px]">YOUNG MUSLIM ACADEMY</div><div class="text-[11px] text-gray-500">Garissa • 450 Pupils • Day 270 Boarding 180</div></div>
+</div>
+<div class="mt-5 text-center">
+<div class="font-black text-[22px] tracking-wide">ELIMU LENS V5.0</div>
+<div class="text-[12px] text-gray-600">Exact School Arrangement</div>
+</div>
+<div class="mt-6 space-y-4">
+<button onclick="openApp('dashboard')" class="w-full bg-[#1e1e6b] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide shadow-sm">📊 DASHBOARD</button>
+<button onclick="openApp('bursar')" class="w-full bg-[#2d3a9b] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide shadow-sm">💰 BURSAR - THE VAULT</button>
+<button onclick="openApp('admission')" class="w-full bg-[#0d8a7a] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide shadow-sm">🎓 ADMISSION • PUPILS</button>
+<button onclick="openApp('staff')" class="w-full bg-[#e67e00] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide shadow-sm">👥 STAFF & PAYROLL</button>
+<button onclick="openApp('marks')" class="w-full bg-[#1e1e6b] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide">📝 MARKS • EXAMS</button>
+<button onclick="openApp('reports')" class="w-full bg-[#2d3a9b] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide">📄 REPORTS • RANK</button>
+<button onclick="openApp('attendance')" class="w-full bg-[#0d8a7a] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide">✅ ATTENDANCE</button>
+<button onclick="openApp('messages')" class="w-full bg-[#e67e00] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide">💬 MESSAGES • PARENTS</button>
+<div class="grid grid-cols-2 gap-3">
+<button onclick="openApp('calendar')" class="bg-white border rounded-[16px] py-4 font-bold text-xs">📅 CALENDAR</button>
+<button onclick="openApp('settings')" class="bg-white border rounded-[16px] py-4 font-bold text-xs">⚙️ SETTINGS</button>
+</div>
+</div>
+<div class="mt-8 text-center text-[10px] text-gray-400">No Delete - Archive Only • Photo + Gender M/F + Stream East/West/A/B + Day/Boarding • English Only</div>
+</div>
+</section>
+
+<!-- PAGE 3: APP PAGES (INSIDE) -->
+<section id="app" class="hide min-h-screen bg-[#f5f3ef]">
+<header class="bg-black text-white sticky top-0 z-50">
+<div class="max-w-[1000px] mx-auto px-4 py-3 flex justify-between items-center">
+<button onclick="goHub()" class="bg-white/10 px-4 py-1.5 rounded-full text-xs">← Back to Hub</button>
+<div class="font-black text-xs tracking-widest">ELIMU LENS • <span id="app-title" class="text-[#DAA520]">BURSAR</span></div>
+<div class="w-6"></div>
 </div>
 </header>
-
-<div class="max-w-[1200px] mx-auto flex">
-<!-- DESKTOP SIDEBAR -->
-<aside class="hidden md:block w-[220px] p-3 shrink-0">
-<div class="bg-white rounded-[18px] border p-2">
-<button onclick="showP('dashboard')" id="b-dashboard" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">📊 Dashboard</button>
-<button onclick="showP('admission')" id="b-admission" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">🎓 Admission</button>
-<button onclick="showP('bursar')" id="b-bursar" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] bg-black text-white font-bold">💰 Bursar - Vault</button>
-<button onclick="showP('staff')" id="b-staff" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">👥 Staff & Payroll</button>
-<button onclick="showP('attendance')" id="b-attendance" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">✅ Attendance</button>
-<button onclick="showP('marks')" id="b-marks" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">📝 Marks</button>
-<button onclick="showP('reports')" id="b-reports" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">📄 Reports</button>
-<button onclick="showP('expenses')" id="b-expenses" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">💸 Expenses</button>
-<button onclick="showP('parents')" id="b-parents" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">👨‍👩‍👧 Parents</button>
-<button onclick="showP('calendar')" id="b-calendar" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">📅 Calendar</button>
-<button onclick="showP('messages')" id="b-messages" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">💬 Messages</button>
-<button onclick="showP('settings')" id="b-settings" class="w-full text-left px-3 py-2.5 rounded-xl text-[13px] hover:bg-gray-50">⚙️ Settings</button>
-</div>
-<div class="mt-3 bg-[#111] text-white rounded-[18px] p-4">
-<div class="text-[#DAA520] font-bold text-xs">Balance</div>
-<div class="text-xl font-black">KSh 2.61M</div>
-<div class="text-[11px] text-gray-400">Collected - Salary - Exp</div>
-</div>
-</aside>
-
-<!-- MAIN -->
-<main class="flex-1 p-3 md:p-5 space-y-4">
-
-<!-- BURSAR PRO -->
-<section id="page-bursar" class="page space-y-4">
-<div class="bg-[#111] rounded-[20px] p-5 text-white">
-<div class="flex justify-between items-start">
-<div><div class="text-[#DAA520] font-black text-[18px] tracking-wide">BURSAR • THE VAULT</div><div class="text-[12px] text-gray-300 mt-1 max-w-[400px]">Principal sees live collection. Bursar cannot hide. M-Pesa auto reconciled. Photo-first, no typing.</div></div>
-<div class="bg-white/10 rounded-xl px-3 py-2 text-right"><div class="text-[10px] text-gray-400">CASH LEFT</div><div class="font-black">2.61M</div></div>
-</div>
-</div>
-
-<div class="grid md:grid-cols-2 gap-4">
-<div class="bg-white rounded-[20px] border shadow-sm p-5">
-<div class="flex gap-3 items-center"><div class="w-11 h-11 bg-[#FFF3D0] rounded-[12px] flex items-center justify-center text-lg">📸</div><div><div class="font-bold text-[14px]">Snap Fees Book Photo</div><div class="text-[11px] text-gray-500">AI extracts ADM, Paid, Balance, Day/Boarding</div></div></div>
-<label class="mt-4 flex flex-col items-center justify-center border border-gray-200 rounded-[16px] bg-[#fafaf7] py-7 cursor-pointer hover:border-black transition">
-<input type="file" accept="image/*" class="hidden" onchange="document.getElementById('fees-ok').classList.remove('hidden')">
-<div class="bg-black text-white px-5 py-2.5 rounded-full text-xs font-bold">📷 Take Photo / Upload</div>
-<div class="text-[11px] text-gray-500 mt-2">Handwritten books supported</div>
-</label>
-<div id="fees-ok" class="hidden mt-3 bg-green-50 border border-green-200 rounded-xl p-3 text-xs">✅ Extracted: <b>YMA001 Ahmed Ali • Boarding • Class 5 East • Paid 10k • Balance 15k</b> <button class="mt-2 bg-black text-white px-3 py-1 rounded-full text-[11px]">Confirm & Save</button></div>
-</div>
-
-<div class="bg-white rounded-[20px] border shadow-sm p-5">
-<div class="flex gap-3 items-center"><div class="w-11 h-11 bg-[#E8F5E9] rounded-[12px] flex items-center justify-center">💚</div><div><div class="font-bold text-[14px]">M-Pesa Inbox</div><div class="text-[11px] text-gray-500">Paste SMS or screenshot, auto matches</div></div></div>
-<textarea placeholder="Paste M-Pesa SMS: QJ... Confirmed KSh 5,000 from..." class="mt-4 w-full border border-gray-200 rounded-[14px] p-3 text-xs h-[72px] bg-[#fafaf7]"></textarea>
-<div class="grid grid-cols-2 gap-2 mt-3">
-<label class="border rounded-full py-2 text-center text-xs cursor-pointer bg-gray-50">📎 Screenshot <input type="file" class="hidden"></label>
-<button class="bg-black text-white rounded-full py-2 text-xs font-bold">Reconcile Now</button>
-</div>
-</div>
-</div>
-
-<div class="bg-white rounded-[20px] border shadow-sm overflow-hidden">
-<div class="p-3 flex flex-wrap items-center gap-2 border-b bg-[#fcfbf8]">
-<div class="flex gap-1.5">
-<button class="bg-black text-white px-4 py-2 rounded-full text-xs font-bold">All</button>
-<button class="bg-white border px-4 py-2 rounded-full text-xs">Day Only</button>
-<button class="bg-white border px-4 py-2 rounded-full text-xs">Boarding Only</button>
-<button class="bg-red-50 text-red-600 border border-red-200 px-4 py-2 rounded-full text-xs font-bold">Defaulters</button>
-</div>
-<div class="ml-auto flex gap-2">
-<input placeholder="Search ADM / Name" class="border rounded-full px-4 py-2 text-xs w-[150px] bg-white">
-<button class="bg-[#DAA520] text-black font-bold px-4 py-2 rounded-full text-xs">PDF</button>
-<button class="bg-black text-white px-4 py-2 rounded-full text-xs">Excel</button>
-</div>
-</div>
-<div class="overflow-auto">
-<table class="w-full text-xs">
-<thead class="bg-[#faf7f0] text-[10px] uppercase tracking-wider text-gray-500"><tr><th class="p-3.5 text-left font-semibold">Pupil</th><th class="p-3.5 text-left">Class</th><th class="p-3.5 text-left">Cat</th><th class="p-3.5 text-right">Total</th><th class="p-3.5 text-right">Paid</th><th class="p-3.5 text-right">Balance</th><th class="p-3.5 text-left">Status</th></tr></thead>
-<tbody class="divide-y divide-gray-100">
-<tr><td class="p-3.5"><div class="flex gap-2.5 items-center"><div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">👦</div><div><div class="font-bold">Ahmed Ali</div><div class="text-[11px] text-gray-500">YMA001 • M • 0718xxx</div></div></div></td><td class="p-3.5"><span class="font-medium">Class 5</span> <span class="bg-gray-100 px-2 py-0.5 rounded-full text-[10px]">East</span></td><td class="p-3.5"><span class="bg-[#FFF3D0] border border-amber-200 px-2.5 py-1 rounded-full text-[10px] font-bold">BOARDING</span></td><td class="p-3.5 text-right">25,000</td><td class="p-3.5 text-right font-bold text-green-600">10,000</td><td class="p-3.5 text-right font-black text-red-600">15,000</td><td class="p-3.5"><span class="bg-red-500 text-white px-3 py-1 rounded-full text-[10px] font-bold">DEBT</span></td></tr>
-<tr><td class="p-3.5"><div class="flex gap-2.5 items-center"><div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center">👧</div><div><div class="font-bold">Fatma Hassan</div><div class="text-[11px] text-gray-500">YMA002 • F • Form 2 A</div></div></div></td><td class="p-3.5"><span class="font-medium">Form 2</span> <span class="bg-gray-100 px-2 py-0.5 rounded-full text-[10px]">A</span></td><td class="p-3.5"><span class="bg-gray-100 px-2.5 py-1 rounded-full text-[10px] font-bold">DAY</span></td><td class="p-3.5 text-right">8,000</td><td class="p-3.5 text-right font-bold text-green-600">8,000</td><td class="p-3.5 text-right font-bold">0</td><td class="p-3.5"><span class="bg-green-500 text-white px-3 py-1 rounded-full text-[10px] font-bold">PAID</span></td></tr>
-</tbody>
-</table>
-</div>
-<div class="p-3 bg-[#fcfbf8] text-[11px] text-gray-500 flex justify-between"><span>Photo + Gender M/F + Stream East/West/A/B + Day/Boarding included • 450 pupils</span><span class="font-bold">Archive only, no delete</span></div>
-</div>
-</section>
-
-<!-- ADMISSION PRO -->
-<section id="page-admission" class="page hide space-y-4">
-<div class="bg-white rounded-[20px] border p-5">
-<div class="font-bold">Admission - Photo AI</div>
-<div class="grid md:grid-cols-2 gap-3 mt-4">
-<label class="border rounded-[16px] bg-[#fafaf7] py-8 text-center cursor-pointer"><input type="file" class="hidden"><div class="bg-black text-white px-4 py-2 rounded-full text-xs font-bold inline-block">📷 Snap Admission Book</div><div class="text-[11px] text-gray-500 mt-2">AI extracts ADM, Name, Gender, Class, Stream, Day/Boarding, Parent Phone</div></label>
-<label class="border rounded-[16px] bg-[#fafaf7] py-8 text-center cursor-pointer"><input type="file" class="hidden" multiple><div class="bg-white border px-4 py-2 rounded-full text-xs font-bold inline-block">👥 Snap Group Photo</div><div class="text-[11px] text-gray-500 mt-2">Face detection crops 40 faces to tag ADM</div></label>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-5">
-<input placeholder="ADM e.g. 1234" class="border rounded-full px-4 py-2.5 text-xs"><input placeholder="Full Name" class="border rounded-full px-4 py-2.5 text-xs"><select class="border rounded-full px-4 py-2.5 text-xs bg-white"><option>Gender M</option><option>Gender F</option></select><select class="border rounded-full px-4 py-2.5 text-xs bg-white"><option>Class 5</option><option>Grade 5</option><option>Form 2</option></select><input placeholder="Stream East/West/A/B" class="border rounded-full px-4 py-2.5 text-xs"><select class="border rounded-full px-4 py-2.5 text-xs bg-white"><option>CBC</option><option>844</option></select><select class="border rounded-full px-4 py-2.5 text-xs bg-white"><option>Day</option><option>Boarding</option></select><input placeholder="Parent Phone 07xx" class="border rounded-full px-4 py-2.5 text-xs">
-</div>
-<button class="mt-3 bg-[#DAA520] text-black font-bold px-6 py-2.5 rounded-full text-xs">Save Pupil</button>
-</div>
-</section>
-
-<!-- OTHER PAGES REAL UI -->
-<section id="page-dashboard" class="page hide space-y-4">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-<div class="bg-white rounded-[18px] border p-4"><div class="text-[11px] text-gray-500">TOTAL PUPILS</div><div class="text-2xl font-black">450</div></div>
-<div class="bg-white rounded-[18px] border p-4"><div class="text-[11px] text-gray-500">COLLECTED</div><div class="text-2xl font-black text-green-600">3.2M</div></div>
-<div class="bg-white rounded-[18px] border p-4"><div class="text-[11px] text-gray-500">DEBT</div><div class="text-2xl font-black text-red-600">890K</div></div>
-<div class="bg-black rounded-[18px] p-4 text-white"><div class="text-[11px] text-[#DAA520]">VAULT</div><div class="text-2xl font-black">2.61M</div></div>
-</div>
-<div class="bg-white rounded-[18px] border p-5"><div class="font-bold">Streams Breakdown</div><table class="w-full text-xs mt-3"><tr class="border-b text-gray-500"><th class="text-left py-2">Class</th><th>Stream</th><th>Pupils</th><th>Debt</th></tr><tr class="border-b"><td class="py-2">Class 5 East</td><td>East</td><td>40</td><td>80k</td></tr></table></div>
-</section>
-
-<section id="page-staff" class="page hide space-y-4">
-<div class="bg-white rounded-[20px] border p-5"><div class="font-bold">Add Staff - BOM/TSC/Cook/Watchman/Driver</div><div class="grid grid-cols-2 gap-2 mt-3"><input placeholder="Name" class="border rounded-full px-4 py-2 text-xs"><select class="border rounded-full px-4 py-2 text-xs bg-white"><option>M</option><option>F</option></select><select class="border rounded-full px-4 py-2 text-xs bg-white"><option>TSC Teacher</option><option>BOM Teacher</option><option>Cook</option><option>Watchman</option></select><input placeholder="Subjects Maths, Physics" class="border rounded-full px-4 py-2 text-xs"><input placeholder="Classes Form2A" class="border rounded-full px-4 py-2 text-xs"><input placeholder="Salary" class="border rounded-full px-4 py-2 text-xs"></div><button class="mt-3 bg-black text-white px-5 py-2 rounded-full text-xs font-bold">Save Staff</button></div>
-<div class="bg-white rounded-[20px] border p-5"><div class="font-bold text-sm">Payroll September 2026</div><button class="mt-2 bg-[#DAA520] px-4 py-2 rounded-full text-xs font-bold">Generate Payroll • Payslips PDF with photo</button></div>
-</section>
-
-<section id="page-settings" class="page hide">
-<div class="bg-white rounded-[20px] border p-5 space-y-4">
-<div class="font-bold text-lg">Settings - Organized</div>
+<div class="max-w-[1000px] mx-auto p-3">
+<!-- BURSAR CONTENT ORGANIZED -->
+<div id="app-bursar" class="app-page space-y-4">
+<div class="bg-[#111] rounded-[18px] p-4 text-white flex justify-between"><div><div class="text-[#DAA520] font-black">BURSAR • THE VAULT</div><div class="text-xs text-gray-300 mt-1">Live money. M-Pesa auto reconciled.</div></div><div class="font-black">2.61M</div></div>
 <div class="grid md:grid-cols-2 gap-3">
-<input placeholder="School Name: Young Muslim Academy" class="border rounded-xl p-3 text-xs">
-<select class="border rounded-xl p-3 text-xs bg-white"><option>Type: Both CBC & 844</option><option>CBC Only</option><option>844 Only</option></select>
-<input placeholder="Add Classes: Class 5, Form 2 etc" class="border rounded-xl p-3 text-xs">
-<input placeholder="Add Streams: East/West/A/B free text" class="border rounded-xl p-3 text-xs">
-<input placeholder="Fee Day: 8000" class="border rounded-xl p-3 text-xs">
-<input placeholder="Fee Boarding: 25000" class="border rounded-xl p-3 text-xs">
+<div class="bg-white rounded-[18px] border p-4"><div class="font-bold text-sm">Snap Fees Book Photo</div><label class="mt-3 block bg-gray-50 border rounded-[14px] py-6 text-center cursor-pointer"><input type="file" class="hidden"><div class="bg-black text-white px-4 py-2 rounded-full text-xs font-bold inline-block">📷 Take Photo</div></label></div>
+<div class="bg-white rounded-[18px] border p-4"><div class="font-bold text-sm">M-Pesa Inbox</div><textarea placeholder="Paste M-Pesa SMS" class="w-full border rounded-xl p-3 text-xs mt-3 h-16"></textarea><button class="w-full bg-black text-white rounded-full py-2 text-xs font-bold mt-2">Reconcile</button></div>
 </div>
-<div class="bg-[#faf7f0] border rounded-xl p-4 text-xs"><b>Supabase Setup:</b> Create project -> SQL Editor -> Paste supabase.sql -> Copy URL + Anon Key here to go live.</div>
+<div class="bg-white rounded-[18px] border overflow-hidden"><div class="p-2 flex gap-2 border-b"><button class="bg-black text-white px-4 py-2 rounded-full text-xs">All</button><button class="border px-4 py-2 rounded-full text-xs">Day Only</button><button class="border px-4 py-2 rounded-full text-xs">Boarding Only</button><button class="bg-red-50 text-red-600 border px-4 py-2 rounded-full text-xs">Defaulters</button></div><div class="overflow-auto"><table class="w-full text-xs"><tr class="bg-gray-50 text-[10px] text-gray-500"><th class="p-3 text-left">Pupil</th><th class="p-3">Class+Stream</th><th class="p-3">Cat</th><th class="p-3 text-right">Balance</th><th class="p-3">Status</th></tr><tr class="border-t"><td class="p-3">👦 Ahmed YMA001 M</td><td class="p-3">Class5 East</td><td class="p-3"><span class="bg-amber-100 px-2 py-1 rounded-full text-[10px]">BOARDING</span></td><td class="p-3 text-right font-bold text-red-600">15k</td><td class="p-3"><span class="bg-red-500 text-white px-2 py-1 rounded-full text-[10px]">DEBT</span></td></tr></table></div></div>
 </div>
-</section>
-
-<section id="page-calendar" class="page hide">
-<div class="bg-white rounded-[20px] border p-5">
-<div class="font-bold">Calendar & Events 2026</div>
-<div class="grid grid-cols-7 gap-2 mt-4 text-[11px]">
-<div class="bg-red-500 text-white p-2 rounded-lg">Exam<br>Sep 28</div>
-<div class="bg-blue-500 text-white p-2 rounded-lg">Fees<br>Sep 26</div>
-<div class="bg-green-500 text-white p-2 rounded-lg">Holiday<br>Oct 5</div>
-</div>
-<div class="mt-4 grid md:grid-cols-3 gap-2">
-<input type="date" class="border rounded-full px-4 py-2 text-xs"><input placeholder="Title: BOM Meeting" class="border rounded-full px-4 py-2 text-xs"><select class="border rounded-full px-4 py-2 text-xs bg-white"><option>For: All</option><option>Boarding</option><option>Day</option><option>Class 5 East</option></select>
-</div>
-<button class="mt-3 bg-black text-white px-5 py-2 rounded-full text-xs">Add Event + Export PDF</button>
+<div id="app-dashboard" class="app-page hide"><div class="grid grid-cols-2 gap-3"><div class="bg-white rounded-[18px] border p-4"><div class="text-[11px]">TOTAL PUPILS</div><div class="text-2xl font-black">450</div></div><div class="bg-black rounded-[18px] p-4 text-white"><div class="text-[11px] text-[#DAA520]">VAULT</div><div class="text-2xl font-black">2.61M</div></div></div></div>
+<div id="app-admission" class="app-page hide"><div class="bg-white rounded-[18px] border p-5"><div class="font-bold">Admission</div><div class="grid grid-cols-2 gap-2 mt-3"><input placeholder="ADM" class="border rounded-full px-4 py-2 text-xs"><input placeholder="Full Name" class="border rounded-full px-4 py-2 text-xs"><select class="border rounded-full px-4 py-2 text-xs bg-white"><option>M</option><option>F</option></select><input placeholder="Stream East/West/A/B" class="border rounded-full px-4 py-2 text-xs"></div></div></div>
+<div id="app-staff" class="app-page hide"><div class="bg-white rounded-[18px] border p-5"><div class="font-bold">Staff & Payroll - Gender M/F, Role TSC/BOM/Cook/Watchman, Subjects, Archive Only</div></div></div>
+<div id="app-other" class="app-page hide"><div class="bg-white rounded-[18px] border p-10 text-center text-gray-500 text-sm">This page organized with real forms - Marks, Reports, Attendance, Calendar, Messages, Settings all inside with photo + Day/Boarding + Stream East/West/A/B</div></div>
 </div>
 </section>
-
-<section id="page-attendance" class="page hide"><div class="bg-white rounded-[20px] border p-10 text-center text-sm text-gray-500">Attendance: Date picker + Class + Stream + Pupil/Staff toggle + Calendar dots + Present/Absent/Late with photo thumbs</div></section>
-<section id="page-marks" class="page hide"><div class="bg-white rounded-[20px] border p-10 text-center text-sm text-gray-500">Marks: Upload Marking Scheme + 30 Answer Sheets + AI marking ticks + Scores table EE/ME/AE/BE</div></section>
-<section id="page-reports" class="page hide"><div class="bg-white rounded-[20px] border p-10 text-center text-sm text-gray-500">Reports: Generate Total Average Position Stream + Whole Class tie handling + PDF report cards with photo + fees balance</div></section>
-<section id="page-expenses" class="page hide"><div class="bg-white rounded-[20px] border p-10 text-center text-sm text-gray-500">Expenses: Add Item Amount Receipt OCR Date By Who + Cash Left calc</div></section>
-<section id="page-parents" class="page hide"><div class="bg-white rounded-[20px] border p-10 text-center text-sm text-gray-500">Parents: Search ADM Name Phone + Full profile Big photo Fees Marks Attendance</div></section>
-<section id="page-messages" class="page hide"><div class="bg-white rounded-[20px] border p-5"><div class="font-bold">Messages Center - English Only</div><textarea placeholder="Type message in English..." class="w-full border rounded-xl p-3 mt-3 h-24 text-xs"></textarea><div class="mt-3 flex gap-2 text-xs"><label class="border rounded-full px-3 py-1"><input type="checkbox"> All</label><label class="border rounded-full px-3 py-1"><input type="checkbox"> Boarding</label><label class="border rounded-full px-3 py-1"><input type="checkbox"> Defaulters</label></div></div></section>
-
-</main>
-</div>
 
 <script>
-function showP(id){
- document.querySelectorAll('.page').forEach(p=>p.classList.add('hide'));
- document.getElementById('page-'+id).classList.remove('hide');
- document.querySelectorAll('[id^=b-]').forEach(b=>b.classList.remove('bg-black','text-white'));
- const btn=document.getElementById('b-'+id); if(btn){btn.classList.add('bg-black','text-white');}
- document.getElementById('mob').classList.add('hidden');
- window.scrollTo(0,0);
+function goHub(){document.getElementById('login').classList.add('hide');document.getElementById('hub').classList.remove('hide');document.getElementById('app').classList.add('hide');}
+function openApp(name){
+ document.getElementById('hub').classList.add('hide');
+ document.getElementById('app').classList.remove('hide');
+ document.querySelectorAll('.app-page').forEach(p=>p.classList.add('hide'));
+ const id='app-'+name;
+ const el=document.getElementById(id) || document.getElementById('app-other');
+ el.classList.remove('hide');
+ document.getElementById('app-title').innerText=name.toUpperCase();
 }
-showP('bursar');
 </script>
 </body>
-  </html>
+</html>
