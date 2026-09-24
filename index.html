@@ -4,101 +4,89 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ELIMU LENS OS</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
-<style>*{font-family:Inter}.hide{display:none}</style>
+<style>.hide{display:none!important}</style>
 </head>
-<body class="bg-[#f2] min-h-screen">
+<body class="bg-[#f2f2f2]">
 
-<!-- PAGE 1: LOGIN -->
-<section id="login" class="min-h-screen flex flex-col items-center justify-center p-6">
-<div class="bg-white w-full max-w-[360px] rounded-[24px] shadow-sm border p-6 text-center">
-<div class="w-14 h-14 bg-black rounded-[14px] flex items-center justify-center mx-auto font-black text-[#DAA520] text-xl">E</div>
-<div class="mt-3 font-black tracking-[3px] text-[18px]">ELIMU LENS</div>
+<!-- LOGIN -->
+<div id="screen-login" class="min-h-screen flex items-center justify-center p-4">
+<div class="bg-white w-full max-w-[380px] rounded-[28px] border shadow-sm p-7">
+<div class="text-center">
+<div class="w-16 h-16 bg-black rounded-[16px] flex items-center justify-center mx-auto text-[#DAA520] font-black text-2xl">E</div>
+<div class="font-black tracking-[4px] mt-4 text-[20px]">ELIMU LENS</div>
 <div class="text-[11px] text-gray-500 tracking-widest">SNAP A PHOTO. SCHOOL IS LIVE.</div>
-<div class="mt-6 text-left">
-<div class="text-xs font-bold">Phone Number</div>
-<input id="phone" placeholder="07xx xxx xxx" class="w-full border rounded-full px-4 py-3 text-sm mt-2 bg-gray-50">
-<div class="text-xs font-bold mt-4">OTP Code (mock 1234)</div>
-<input id="otp" placeholder="1234" class="w-full border rounded-full px-4 py-3 text-sm mt-2 bg-gray-50">
-<button onclick="goHub()" class="w-full bg-black text-white rounded-full py-3.5 font-bold mt-6 text-sm">Log In</button>
-<div class="text-[11px] text-gray-500 mt-3 text-center">Young Muslim Academy • Garissa • 450 pupils</div>
+</div>
+<div class="mt-7">
+<div class="text-[13px] font-bold">Phone Number</div>
+<input id="phone" value="0718255742" class="w-full mt-2 bg-[#f0f4ff] border border-blue-100 rounded-full px-5 py-3.5 text-[15px] font-semibold">
+<div class="text-[13px] font-bold mt-5">OTP Code (mock 1234)</div>
+<input id="otp" value="1234" class="w-full mt-2 bg-gray-50 border rounded-full px-5 py-3.5 text-[15px] font-semibold">
+<div id="err" class="hidden text-xs text-red-600 mt-3 bg-red-50 p-2 rounded-full text-center"></div>
+<button id="loginBtn" class="w-full bg-black text-white rounded-full py-4 font-bold mt-6">Log In</button>
+<div class="text-[11px] text-gray-500 text-center mt-3">Young Muslim Academy • Garissa • 450 pupils</div>
 </div>
 </div>
-</section>
+</div>
 
-<!-- PAGE 2: HUB - LLCC STYLE BIG BUTTONS -->
-<section id="hub" class="hide min-h-screen bg-[#f2f2f2]">
-<div class="bg-white border-b sticky top-0 z-50">
-<div class="max-w-[420px] mx-auto px-4 py-3 flex justify-between items-center">
-<div class="flex gap-2 items-center"><div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-[#DAA520] font-black">E</div><div><div class="font-black text-[12px]">ELIMU LENS</div><div class="text-[9px] text-gray-500">ENGLISH ONLY • LIVE</div></div></div>
-<button onclick="location.reload()" class="text-[11px] bg-gray-100 px-3 py-1.5 rounded-full">Logout</button>
+<!-- HUB LLCC STYLE -->
+<div id="screen-hub" class="hide min-h-screen">
+<div class="bg-white border-b p-3 sticky top-0">
+<div class="max-w-[420px] mx-auto flex justify-between items-center">
+<div class="flex gap-2 items-center"><div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-[#DAA520] font-black">E</div><div class="font-black text-xs">ELIMU LENS V5.0</div></div>
+<button onclick="location.reload()" class="text-xs bg-gray-100 px-3 py-1 rounded-full">Logout</button>
 </div>
 </div>
 <div class="max-w-[420px] mx-auto p-4">
-<div class="bg-white rounded-[16px] border p-3 flex items-center gap-3">
-<img src="https://i.ibb.co/4Z3s0cM/logo.png" class="w-12 h-12 rounded bg-gray-100 hidden">
-<div class="w-12 h-12 bg-[#DAA520] rounded-xl flex items-center justify-center font-black">YMA</div>
-<div><div class="font-black text-[13px]">YOUNG MUSLIM ACADEMY</div><div class="text-[11px] text-gray-500">Garissa • 450 Pupils • Day 270 Boarding 180</div></div>
-</div>
-<div class="mt-5 text-center">
-<div class="font-black text-[22px] tracking-wide">ELIMU LENS V5.0</div>
-<div class="text-[12px] text-gray-600">Exact School Arrangement</div>
-</div>
-<div class="mt-6 space-y-4">
-<button onclick="openApp('dashboard')" class="w-full bg-[#1e1e6b] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide shadow-sm">📊 DASHBOARD</button>
-<button onclick="openApp('bursar')" class="w-full bg-[#2d3a9b] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide shadow-sm">💰 BURSAR - THE VAULT</button>
-<button onclick="openApp('admission')" class="w-full bg-[#0d8a7a] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide shadow-sm">🎓 ADMISSION • PUPILS</button>
-<button onclick="openApp('staff')" class="w-full bg-[#e67e00] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide shadow-sm">👥 STAFF & PAYROLL</button>
-<button onclick="openApp('marks')" class="w-full bg-[#1e1e6b] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide">📝 MARKS • EXAMS</button>
-<button onclick="openApp('reports')" class="w-full bg-[#2d3a9b] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide">📄 REPORTS • RANK</button>
-<button onclick="openApp('attendance')" class="w-full bg-[#0d8a7a] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide">✅ ATTENDANCE</button>
-<button onclick="openApp('messages')" class="w-full bg-[#e67e00] text-white rounded-[18px] py-5 font-black text-[16px] tracking-wide">💬 MESSAGES • PARENTS</button>
-<div class="grid grid-cols-2 gap-3">
-<button onclick="openApp('calendar')" class="bg-white border rounded-[16px] py-4 font-bold text-xs">📅 CALENDAR</button>
-<button onclick="openApp('settings')" class="bg-white border rounded-[16px] py-4 font-bold text-xs">⚙️ SETTINGS</button>
+<div class="text-center mt-2"><div class="font-black text-[22px]">ELIMU LENS V5.0</div><div class="text-xs text-gray-600">Exact School Arrangement</div></div>
+<div class="mt-6 space-y-3">
+<button class="appBtn w-full bg-[#1e1e6b] text-white rounded-[16px] py-5 font-black" data-page="dashboard">FIELD - DASHBOARD</button>
+<button class="appBtn w-full bg-[#2d3a9b] text-white rounded-[16px] py-5 font-black" data-page="bursar">BURSAR PAGE - VAULT</button>
+<button class="appBtn w-full bg-[#0d8a7a] text-white rounded-[16px] py-5 font-black" data-page="admission">CENTRE - ADMISSION PAGE</button>
+<button class="appBtn w-full bg-[#e67e00] text-white rounded-[16px] py-5 font-black" data-page="staff">STAFF PAGE</button>
+<button class="appBtn w-full bg-[#1e1e6b] text-white rounded-[16px] py-4 font-bold text-sm" data-page="marks">MARKS PAGE</button>
+<button class="appBtn w-full bg-[#2d3a9b] text-white rounded-[16px] py-4 font-bold text-sm" data-page="reports">REPORTS PAGE</button>
+<button class="appBtn w-full bg-[#0d8a7a] text-white rounded-[16px] py-4 font-bold text-sm" data-page="attendance">ATTENDANCE PAGE</button>
+<button class="appBtn w-full bg-[#e67e00] text-white rounded-[16px] py-4 font-bold text-sm" data-page="calendar">CALENDAR & SETTINGS</button>
 </div>
 </div>
-<div class="mt-8 text-center text-[10px] text-gray-400">No Delete - Archive Only • Photo + Gender M/F + Stream East/West/A/B + Day/Boarding • English Only</div>
 </div>
-</section>
 
-<!-- PAGE 3: APP PAGES (INSIDE) -->
-<section id="app" class="hide min-h-screen bg-[#f5f3ef]">
-<header class="bg-black text-white sticky top-0 z-50">
-<div class="max-w-[1000px] mx-auto px-4 py-3 flex justify-between items-center">
-<button onclick="goHub()" class="bg-white/10 px-4 py-1.5 rounded-full text-xs">← Back to Hub</button>
-<div class="font-black text-xs tracking-widest">ELIMU LENS • <span id="app-title" class="text-[#DAA520]">BURSAR</span></div>
-<div class="w-6"></div>
+<!-- APP INNER -->
+<div id="screen-app" class="hide min-h-screen bg-[#f5f3ef]">
+<div class="bg-black text-white p-3 flex justify-between items-center sticky top-0">
+<button onclick="document.getElementById('screen-app').classList.add('hide');document.getElementById('screen-hub').classList.remove('hide')" class="bg-white/20 px-4 py-1.5 rounded-full text-xs">← Back</button>
+<div id="appTitle" class="font-black text-xs text-[#DAA520]">BURSAR</div><div></div>
 </div>
-</header>
-<div class="max-w-[1000px] mx-auto p-3">
-<!-- BURSAR CONTENT ORGANIZED -->
-<div id="app-bursar" class="app-page space-y-4">
-<div class="bg-[#111] rounded-[18px] p-4 text-white flex justify-between"><div><div class="text-[#DAA520] font-black">BURSAR • THE VAULT</div><div class="text-xs text-gray-300 mt-1">Live money. M-Pesa auto reconciled.</div></div><div class="font-black">2.61M</div></div>
-<div class="grid md:grid-cols-2 gap-3">
-<div class="bg-white rounded-[18px] border p-4"><div class="font-bold text-sm">Snap Fees Book Photo</div><label class="mt-3 block bg-gray-50 border rounded-[14px] py-6 text-center cursor-pointer"><input type="file" class="hidden"><div class="bg-black text-white px-4 py-2 rounded-full text-xs font-bold inline-block">📷 Take Photo</div></label></div>
-<div class="bg-white rounded-[18px] border p-4"><div class="font-bold text-sm">M-Pesa Inbox</div><textarea placeholder="Paste M-Pesa SMS" class="w-full border rounded-xl p-3 text-xs mt-3 h-16"></textarea><button class="w-full bg-black text-white rounded-full py-2 text-xs font-bold mt-2">Reconcile</button></div>
+<div class="max-w-[800px] mx-auto p-3">
+<div id="content" class="bg-white rounded-[18px] border p-5 text-sm">Loading...</div>
 </div>
-<div class="bg-white rounded-[18px] border overflow-hidden"><div class="p-2 flex gap-2 border-b"><button class="bg-black text-white px-4 py-2 rounded-full text-xs">All</button><button class="border px-4 py-2 rounded-full text-xs">Day Only</button><button class="border px-4 py-2 rounded-full text-xs">Boarding Only</button><button class="bg-red-50 text-red-600 border px-4 py-2 rounded-full text-xs">Defaulters</button></div><div class="overflow-auto"><table class="w-full text-xs"><tr class="bg-gray-50 text-[10px] text-gray-500"><th class="p-3 text-left">Pupil</th><th class="p-3">Class+Stream</th><th class="p-3">Cat</th><th class="p-3 text-right">Balance</th><th class="p-3">Status</th></tr><tr class="border-t"><td class="p-3">👦 Ahmed YMA001 M</td><td class="p-3">Class5 East</td><td class="p-3"><span class="bg-amber-100 px-2 py-1 rounded-full text-[10px]">BOARDING</span></td><td class="p-3 text-right font-bold text-red-600">15k</td><td class="p-3"><span class="bg-red-500 text-white px-2 py-1 rounded-full text-[10px]">DEBT</span></td></tr></table></div></div>
 </div>
-<div id="app-dashboard" class="app-page hide"><div class="grid grid-cols-2 gap-3"><div class="bg-white rounded-[18px] border p-4"><div class="text-[11px]">TOTAL PUPILS</div><div class="text-2xl font-black">450</div></div><div class="bg-black rounded-[18px] p-4 text-white"><div class="text-[11px] text-[#DAA520]">VAULT</div><div class="text-2xl font-black">2.61M</div></div></div></div>
-<div id="app-admission" class="app-page hide"><div class="bg-white rounded-[18px] border p-5"><div class="font-bold">Admission</div><div class="grid grid-cols-2 gap-2 mt-3"><input placeholder="ADM" class="border rounded-full px-4 py-2 text-xs"><input placeholder="Full Name" class="border rounded-full px-4 py-2 text-xs"><select class="border rounded-full px-4 py-2 text-xs bg-white"><option>M</option><option>F</option></select><input placeholder="Stream East/West/A/B" class="border rounded-full px-4 py-2 text-xs"></div></div></div>
-<div id="app-staff" class="app-page hide"><div class="bg-white rounded-[18px] border p-5"><div class="font-bold">Staff & Payroll - Gender M/F, Role TSC/BOM/Cook/Watchman, Subjects, Archive Only</div></div></div>
-<div id="app-other" class="app-page hide"><div class="bg-white rounded-[18px] border p-10 text-center text-gray-500 text-sm">This page organized with real forms - Marks, Reports, Attendance, Calendar, Messages, Settings all inside with photo + Day/Boarding + Stream East/West/A/B</div></div>
-</div>
-</section>
 
 <script>
-function goHub(){document.getElementById('login').classList.add('hide');document.getElementById('hub').classList.remove('hide');document.getElementById('app').classList.add('hide');}
-function openApp(name){
- document.getElementById('hub').classList.add('hide');
- document.getElementById('app').classList.remove('hide');
- document.querySelectorAll('.app-page').forEach(p=>p.classList.add('hide'));
- const id='app-'+name;
- const el=document.getElementById(id) || document.getElementById('app-other');
- el.classList.remove('hide');
- document.getElementById('app-title').innerText=name.toUpperCase();
-}
+const loginBtn=document.getElementById('loginBtn');
+loginBtn.addEventListener('click',function(){
+ const otp=document.getElementById('otp').value.trim();
+ const phone=document.getElementById('phone').value.trim();
+ const err=document.getElementById('err');
+ if(phone.length<5){err.innerText='Enter phone number';err.classList.remove('hidden');return;}
+ if(otp!=='1234'){err.innerText='OTP must be 1234 (mock)';err.classList.remove('hidden');return;}
+ // SUCCESS
+ document.getElementById('screen-login').classList.add('hide');
+ document.getElementById('screen-hub').classList.remove('hide');
+});
+document.querySelectorAll('.appBtn').forEach(b=>{
+ b.addEventListener('click',()=>{
+  const page=b.dataset.page;
+  document.getElementById('screen-hub').classList.add('hide');
+  document.getElementById('screen-app').classList.remove('hide');
+  document.getElementById('appTitle').innerText=page.toUpperCase();
+  let html='';
+  if(page==='bursar'){html=`<div class="space-y-3"><div class="bg-black text-white rounded-xl p-4"><div class="text-[#DAA520] font-black">BURSAR - THE VAULT</div><div class="text-xs">Live money 2.61M • Day vs Boarding split • Archive only</div></div><div class="grid md:grid-cols-2 gap-3"><div class="border rounded-xl p-4 bg-[#fafaf7] text-center"><div class="font-bold">Snap Fees Book Photo</div><label class="mt-3 inline-block bg-black text-white px-5 py-2 rounded-full text-xs cursor-pointer">📷 Take Photo<input type="file" class="hidden"></label></div><div class="border rounded-xl p-4"><div class="font-bold">M-Pesa</div><textarea placeholder="Paste SMS" class="w-full border rounded-xl p-2 text-xs mt-2"></textarea></div></div><div class="border rounded-xl overflow-auto"><table class="w-full text-xs"><tr class="bg-gray-50"><th class="p-2 text-left">Pupil ADM Gender Stream Day/Boarding</th><th class="p-2">Balance</th></tr><tr><td class="p-2">Ahmed YMA001 M Class5 East Boarding</td><td class="p-2 text-red-600 font-bold">15k Debt</td></tr></table></div></div>`;}
+  else if(page==='dashboard'){html=`<div class="grid grid-cols-2 gap-3"><div class="border rounded-xl p-4"><div class="text-xs">TOTAL PUPILS</div><div class="text-2xl font-black">450</div><div class="text-xs">Day 270 Boarding 180</div></div><div class="bg-black text-white rounded-xl p-4"><div class="text-[#DAA520] text-xs">VAULT</div><div class="text-2xl font-black">2.61M</div></div></div><div class="mt-4 border rounded-xl p-4"><div class="font-bold">Streams East/West/A/B Breakdown</div><div class="text-xs mt-2">Class 5 East 40 pupils Debt 80k</div></div>`;}
+  else{html=`<div><div class="font-bold text-lg">${page.toUpperCase()} PAGE</div><div class="text-xs text-gray-500 mt-2">Organized UI - Photo + Gender M/F + Stream East/West/A/B + Day/Boarding + Archive Only + English Only. Ready to build full features here.</div><div class="mt-4 grid grid-cols-2 gap-2"><input placeholder="ADM" class="border rounded-full px-4 py-2 text-xs"><input placeholder="Name" class="border rounded-full px-4 py-2 text-xs"></div></div>`;}
+  document.getElementById('content').innerHTML=html;
+ });
+});
 </script>
 </body>
 </html>
